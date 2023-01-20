@@ -16,5 +16,8 @@ const homeSchema = new Schema({
     type: Array,
     default: ["HLAING HTET", "WEB DEVELOPER"],
   },
+  image: {
+    type: String,
+  },
 });
 module.exports = mongoose.model("homedata", homeSchema);

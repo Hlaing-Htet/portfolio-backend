@@ -11,6 +11,7 @@ const addData = async (req, res) => {
 };
 const updateData = async (req, res, next) => {
   let data = await DB.findById(req.params.id);
+  console.log(req.body);
   if (data) {
     await DB.findByIdAndUpdate(data._id, req.body);
     let newData = await DB.findById(data._id);
