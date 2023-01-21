@@ -11,7 +11,9 @@ const deleteFile = async (filename) => {
   await fs.unlinkSync(`./uploads/${filename}`);
 };
 const updateFile = (req, res, next) => {
-  deleteFile(req.params.fileName);
+  if (req.params.fileName !== "image.png") {
+    deleteFile(req.params.fileName);
+  }
   let file = req.files.file;
   let filename = new Date().valueOf() + "_" + file.name;
   file.mv(`./uploads/${filename}`);

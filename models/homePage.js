@@ -18,6 +18,7 @@ const homeSchema = new Schema({
   },
   image: {
     type: String,
+    default: "image.png",
   },
 });
 module.exports = mongoose.model("homedata", homeSchema);
