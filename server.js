@@ -6,6 +6,7 @@ const cors = require("cors");
 const fileUpload = require("express-fileupload");
 
 const homePage = require("./routers/homePage");
+const socialsRouter = require("./routers/socials");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 
 //routes
 app.use("/api/homepage", homePage);
+app.use("/api/socials", socialsRouter);
 
 app.use((err, req, res, next) => {
   err.status = err.status || 200;
