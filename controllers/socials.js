@@ -12,15 +12,25 @@ const addSocial = async (req, res) => {
   Helper.fMsg(res, "Add new social", social);
 };
 const deleteSocial = async (req, res) => {
-  console.log(req.params.id);
   let social = await DB.findByIdAndDelete(req.params.id);
   console.log(social);
   deleteFile(social.image);
   Helper.fMsg(res, "Delete social", social);
+};
+const updateSocial = async (req, res, next) => {
+  let social = await DB.findById(req.params.id);
+  if (social) {
+    await DB.findByIdAndUpdate(social._id, req.body);
+    let newSocial = await DB.findById(social._id);
+    Helper.fMsg(res, "Update social", newSocial);
+  } else {
+    next(new Error("Error, No Social with that id"));
+  }
 };
 
 module.exports = {
   getSocials,
   deleteSocial,
   addSocial,
+  updateSocial,
 };
