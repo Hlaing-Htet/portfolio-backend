@@ -13,7 +13,7 @@ const addSocial = async (req, res) => {
 };
 const deleteSocial = async (req, res) => {
   let social = await DB.findByIdAndDelete(req.params.id);
-  console.log(social);
+
   deleteFile(social.image);
   Helper.fMsg(res, "Delete social", social);
 };
