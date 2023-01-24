@@ -3,6 +3,9 @@ const DB = require("../models/socialModel");
 
 const saveFileFun = (req, next) => {
   let file = req.files.file;
+  if (!file) {
+    next();
+  }
   let filename = new Date().valueOf() + "_" + file.name;
   file.mv(`./uploads/${filename}`);
   req.body["image"] = filename;

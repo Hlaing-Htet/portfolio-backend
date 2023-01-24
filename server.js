@@ -8,6 +8,7 @@ const fileUpload = require("express-fileupload");
 const homePage = require("./routers/homePage");
 const socialsRouter = require("./routers/socials");
 const skillsCatRouter = require("./routers/skillsCat");
+const skillsRouter = require("./routers/skills");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 app.use("/api/homepage", homePage);
 app.use("/api/socials", socialsRouter);
 app.use("/api/skillsCat", skillsCatRouter);
+app.use("/api/skills", skillsRouter);
 
 app.use((err, req, res, next) => {
   err.status = err.status || 200;
