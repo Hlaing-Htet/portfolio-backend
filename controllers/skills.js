@@ -3,7 +3,7 @@ const Helper = require("../utils/helper");
 const { deleteFile } = require("../utils/gallery");
 
 const getSkills = async (req, res) => {
-  const skills = await DB.find();
+  const skills = await DB.find().populate("skillsCat", "name -_id");
   Helper.fMsg(res, "All Skills", skills);
 };
 const addSkill = async (req, res) => {
