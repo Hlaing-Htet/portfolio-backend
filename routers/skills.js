@@ -4,6 +4,7 @@ const router = express.Router();
 const { saveFile, updateFile } = require("../utils/gallery");
 
 router.get("/", controller.getSkills);
+router.get("/:catId", controller.getSkillsByCat);
 router.post("/", saveFile, controller.addSkill);
 router.delete("/:id", controller.deleteSkill);
 router.patch("/:id/:fileName", updateFile, controller.updateSkill);
