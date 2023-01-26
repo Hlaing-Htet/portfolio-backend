@@ -9,6 +9,8 @@ const homePage = require("./routers/homePage");
 const socialsRouter = require("./routers/socials");
 const skillsCatRouter = require("./routers/skillsCat");
 const skillsRouter = require("./routers/skills");
+const projectsCatRouter = require("./routers/projectsCat");
+const projectsRouter = require("./routers/projects");
 
 const app = express();
 
@@ -28,6 +30,8 @@ app.use("/api/homepage", homePage);
 app.use("/api/socials", socialsRouter);
 app.use("/api/skillsCat", skillsCatRouter);
 app.use("/api/skills", skillsRouter);
+app.use("/api/projectsCat", projectsCatRouter);
+app.use("/api/projects", projectsRouter);
 
 app.use((err, req, res, next) => {
   err.status = err.status || 200;
