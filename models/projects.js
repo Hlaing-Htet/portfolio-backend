@@ -12,10 +12,6 @@ const projectsSchema = new Schema({
     type: String,
     required: true,
   },
-  name: {
-    type: String,
-    required: true,
-  },
   demo_link: {
     type: String,
   },
