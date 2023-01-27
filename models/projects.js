@@ -18,6 +18,10 @@ const projectsSchema = new Schema({
   code_link: {
     type: String,
   },
+  show: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 module.exports = mongoose.model("project", projectsSchema);

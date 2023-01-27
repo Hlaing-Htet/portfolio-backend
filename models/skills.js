@@ -16,6 +16,10 @@ const skillsSchema = new Schema({
     type: String,
     required: true,
   },
+  show: {
+    type: Boolean,
+    default: true,
+  },
   level: {
     type: String,
     required: true,
