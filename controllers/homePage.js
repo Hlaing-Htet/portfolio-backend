@@ -7,7 +7,7 @@ const getData = async (req, res) => {
 };
 const addData = async (req, res) => {
   let homeData = await new DB(req.body).save();
-  Helper.fMsg(res, "Add Home Data", homeData);
+  Helper.fMsg(res, "Add Home Data", [{ ...homeData }]);
 };
 const updateData = async (req, res, next) => {
   let data = await DB.findById(req.params.id);
