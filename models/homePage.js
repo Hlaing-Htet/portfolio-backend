@@ -20,5 +20,9 @@ const homeSchema = new Schema({
     type: String,
     default: "image.png",
   },
+  color: {
+    type: String,
+    default: "#c9a227",
+  },
 });
 module.exports = mongoose.model("homedata", homeSchema);

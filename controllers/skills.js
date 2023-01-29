@@ -1,13 +1,18 @@
 const DB = require("../models/skills");
 const Helper = require("../utils/helper");
+const mongoose = require("mongoose");
 const { deleteFile } = require("../utils/gallery");
 
 const getSkills = async (req, res) => {
   const skills = await DB.find().populate("skillsCat", "name -_id");
   Helper.fMsg(res, "All Skills", skills);
 };
-const getSkillsByCat = async (req, res) => {
-  const skills = await DB.find({ skillsCat: req.params.catId });
+const getSkillsByCat = async (req, res, next) => {
+  const id = req.params.catId;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such skills" });
+  }
+  const skills = await DB.find({ skillsCat: id });
   Helper.fMsg(res, "Skills by CatId", skills);
 };
 const addSkill = async (req, res) => {
