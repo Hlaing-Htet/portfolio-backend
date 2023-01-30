@@ -19,7 +19,7 @@ const deleteSocial = async (req, res) => {
 };
 const updateSocial = async (req, res, next) => {
   let social = await DB.findById(req.params.id);
-  console.log(req.body);
+
   if (social) {
     await DB.findByIdAndUpdate(social._id, req.body);
     let newSocial = await DB.findById(social._id);
