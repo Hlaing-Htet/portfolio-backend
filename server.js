@@ -12,6 +12,7 @@ const skillsRouter = require("./routers/skills");
 const projectsCatRouter = require("./routers/projectsCat");
 const projectsRouter = require("./routers/projects");
 const musicRouter = require("./routers/music");
+const contactRouter = require("./routers/contact");
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use("/api/skills", skillsRouter);
 app.use("/api/projectsCat", projectsCatRouter);
 app.use("/api/projects", projectsRouter);
 app.use("/api/music", musicRouter);
+app.use("/api/contact", contactRouter);
 
 app.use((err, req, res, next) => {
   err.status = err.status || 200;
