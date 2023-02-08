@@ -6,6 +6,15 @@ const contactSchema = new Schema({
   messengar: {
     type: Map,
   },
+  email: {
+    type: Map,
+  },
+  phone: {
+    type: Map,
+  },
+  emailJs: {
+    type: Map,
+  },
 });
 
 module.exports = mongoose.model("contact", contactSchema);
